@@ -1,3 +1,12 @@
+/**@author Wasay
+ * @version 2025.05.05
+ * 
+*/
+
+/**
+* Class to make a vehicle of some kind
+*/
+
 public class Vehicle {
     
     private String vehicleName;
@@ -7,6 +16,9 @@ public class Vehicle {
     private double fuelEfficiency;
     private double startPosition;
 
+    /**
+     * default constructor for Vehicle
+     */
     public Vehicle() {
         this.vehicleName = "";
         this.maxCrew = 0;
@@ -16,6 +28,14 @@ public class Vehicle {
         this.fuelEfficiency = 0;
     }
 
+    /**
+     * parameterized constructor for Vehicle
+     * @param vehicleName name of vehicle
+     * @param numberOfCrew number of crew
+     * @param maxCrew maximum crew allowed
+     * @param fuelAmount amount of fuel onboard
+     * @param fuelEfficiency efficiency of fuel burn for vehicle
+     */
     public Vehicle(String vehicleName, int numberOfCrew, int maxCrew, double fuelAmount, double fuelEfficiency) {
         this.vehicleName = vehicleName;
         this.maxCrew = maxCrew;
@@ -25,7 +45,13 @@ public class Vehicle {
         this.fuelEfficiency = fuelEfficiency;
     }
 
-    public double moves(double moveDistance) { //return to this later mate
+    /**
+     * moves the vehicle based on the amount of fuel required and it's fuel efficiency, then adds the distance travelled to a start position, which at first, is 0
+     * @param moveDistance how far the vehicle will move with the required fuel amount and efficiency.
+     * @return how much the position of vehicle changes
+     */
+
+    public double moves(double moveDistance) {
         double fuelNeeded = 0;
 
         fuelNeeded = moveDistance * fuelEfficiency;
@@ -42,6 +68,11 @@ public class Vehicle {
         }
     }
 
+    /**
+     * method for adding crew to vehicle
+     * @param addedCrew how many passengers/crew is added to original amount.
+     * @return how many passengers/crew is successfully added to original amount.
+     */
     public int boarding(int addedCrew) {
         int newCrew;
 
@@ -55,6 +86,12 @@ public class Vehicle {
             return newCrew;
         } 
     }
+
+    /**
+     * method for substracting crew from vehicle
+     * @param decrewing how many passengers/crew is substracted from original amount.
+     * @return how many passengers/crew is successfully substracted from original amount.
+     */
 
     public int leaving(int decrewing) {
         int newCrew;
@@ -70,20 +107,34 @@ public class Vehicle {
         } 
     }
 
+    /**
+     * adds more fuel to vehicle
+     * @param fuelAdded how much fuel is added to original amount.
+     * @return how much fuel successfully added to original amount.
+     */
+
     public double addMoreFuel(int fuelAdded) {
         this.fuelAmount += fuelAdded;
         return this.fuelAmount;
     }
 
+    /**
+     * gets name of vehicle
+     * @return name of vehicle.
+     */
+
     public String getVehicleName() {
         return this.vehicleName;
     }
+
+    /**
+     * allows for setting name of vehicle
+     * @param vehicleName set vehicle name.
+     * @return name of vehicle.
+     */
 
     public String setVehicleName(String vehicleName) {
         this.vehicleName = vehicleName;
         return this.vehicleName;
     }
 }
-
-// attributes: vehicleName, terrainNav, numberOfCrew, maxCrew, fuelAmount
-// behaviours: move - consumesFuel, boardingAndLeaving, addMoreFuel
